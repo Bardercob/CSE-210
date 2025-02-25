@@ -6,5 +6,8 @@ class Program
     {
         Console.WriteLine("Hello Sand World!");
         Console.WriteLine("Hello class");
+        Console.WriteLine("please enter your name: ");
+        string name = Console.ReadLine();
+        Console.WriteLine($"{name}");
     }
 }
