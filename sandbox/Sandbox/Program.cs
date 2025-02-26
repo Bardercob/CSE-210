@@ -8,6 +8,6 @@ class Program
         Console.WriteLine("Hello class");
         Console.WriteLine("please enter your name: ");
         string name = Console.ReadLine();
-        Console.WriteLine($"{name}");
+        Console.WriteLine($"Your name is {name}");
     }
 }
