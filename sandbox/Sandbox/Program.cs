@@ -1,5 +1,31 @@
 using System;
-using System.Runtime.InteropServices;
+using System.Formats.Asn1;
+
+class Circle
+{
+    private double radius;
+
+    public Circle(double r)
+    {
+        radius = r;
+    }
+
+    public double GetArea()
+    {
+        double area = Math.PI * radius * radius;
+        return area;
+    }
+
+    public void displayCircleArea()
+    {
+        Console.WriteLine($"The area of the circle is {GetArea()}");
+    }
+
+    public void SetRadius(double r)
+    {
+        radius = r;
+    }
+}
 
 class Program
 {   
@@ -9,50 +35,18 @@ class Program
     }
     static void Main(string[] args)
     {
-        // for(float i = 0; i < 20; i += 0.3F)
-        // {
-        //     Console.WriteLine($"{i + 1}: bob");
-        // }
+        Circle myCircle = new Circle(10);
 
-        List<int> numbers = new List<int>{1, 2, 3, 4, 5};
-        numbers.Add(10);
+        myCircle.displayCircleArea();
+        Circle myCircle2 = new Circle(20);
+        myCircle2.displayCircleArea();
 
-        foreach(int x in numbers)
+        for(int i = 0; i < 30; i++)
         {
-            Console.WriteLine($"{x}");
+            myCircle.SetRadius(i);
+            double circleArea = myCircle.GetArea();
+            Console.WriteLine($"{i}: Circle area is: {circleArea}");
         }
-
-        // bool correctInput = false;
-        // while(!correctInput)
-        // {
-        //     Console.Write("please input your age ");
-        //     int age = int.Parse(Console.ReadLine());
-        //     if (age >= 0 && age <= 120)
-        //     {
-        //         Console.WriteLine($"Your age is: {age}");
-        //         correctInput = true;
-        //     }
-        // }
-        // bool correctInput = false;
-        // do
-        // {
-        //     Console.Write("please input your age ");
-        //     int age = int.Parse(Console.ReadLine());
-        //     if (age >= 0 && age <= 120)
-        //     {
-        //         Console.WriteLine($"Your age is: {age}");
-        //         correctInput = true;
-        //     }
-        // } while(!correctInput);
-
-        Random newRandomNumber = new Random();
-        for(int x = 0; x < 10; x++)
-        {
-            int number = newRandomNumber.Next(1, 1000);
-            Console.WriteLine($"{number}");
-        }
-
-        int total = Addnumbers(4, 5);
-        Console.WriteLine($"{total}");
     }
+    
 }
