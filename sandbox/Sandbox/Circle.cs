@@ -1,15 +1,15 @@
 class Circle
 {
-    private double radius;
+    private double _radius;
 
     public Circle(double r)
     {
-        radius = r;
+        _radius = r;
     }
 
     public double GetArea()
     {
-        double area = Math.PI * radius * radius;
+        double area = Math.PI * _radius * _radius;
         return area;
     }
 
@@ -20,6 +20,6 @@ class Circle
 
     public void SetRadius(double r)
     {
-        radius = r;
+        _radius = r;
     }
 }

@@ -2,7 +2,7 @@ class Resume
 {
     private string _name;
 
-    private List<Job> _jobs = new List<Job>();
+    private List<Job> _jobs;
 
     public Resume(string name)
     {
