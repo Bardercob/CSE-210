@@ -10,6 +10,7 @@ class Reference
         this._book = book;
         this._chapter = chapter;
         this._startVerse = startVerse;
+        this._endVerse = 0;
     }
     public Reference(string book, int chapter, int startVerse, int endverse)
     {
@@ -21,6 +22,14 @@ class Reference
 
     public string GetReference()
     {
-        return $"{_book} {_chapter}:{_startVerse}";
+        if (_endVerse == 0)
+        {
+            return $"{_book} {_chapter}:{_startVerse}";
+        }
+        else
+        {
+            return $"{_book} {_chapter}:{_startVerse}-{_endVerse}";
+        }
+        
     }
 }
