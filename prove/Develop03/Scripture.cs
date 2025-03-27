@@ -20,7 +20,48 @@ class Scripture
         Console.Write(_scriptureReference.GetReference());
         foreach(Word word in _wordList)
         {
-            Console.Write($" {word.GetHiddenWord()}");
+            Console.Write($" {word.GetWord()}");
         }
+    }
+
+    public void HideRandomWords()
+    {
+        Random randomHidden = new Random();
+        int index = -1;
+        do
+        {
+        index = randomHidden.Next(_wordList.Count);
+
+        if (! _wordList[index].GetIsHidden())
+        {
+            _wordList[index].HideWord();
+            _wordList[index].SetIsHidden(true);
+            break;
+        }
+        } while (_wordList[index].GetIsHidden());
+    }
+
+    public bool CheckAllHidden()
+    {
+        int hiddenWords = 0;
+        foreach(Word word in _wordList)
+        {
+            
+            if (word.GetIsHidden())
+            {
+                hiddenWords += 1;
+            }
+        }
+        if (hiddenWords == _wordList.Count)
+        {
+            bool allHidden = true;
+            return allHidden;
+        }
+        else
+        {
+            bool allHidden = false;
+            return allHidden;
+        }
+        
     }
 }
