@@ -65,4 +65,14 @@ class Activity
         }
         Console.WriteLine(" ");
     }
+
+    public static string ChooseRandomPrompt()
+    {
+        string[] promptList = ["Who are people that you appreciate?", "What are personal strengths of yours?", "Who are people that you have helped this week?", "When have you felt the Holy Ghost this month?", "Who are some of your personal heroes?"];
+        int index = -1;
+        Random random = new Random();
+        index = random.Next(promptList.Count());
+        string prompt = promptList[index];
+        return prompt;
+    }
 }
