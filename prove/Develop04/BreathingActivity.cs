@@ -10,6 +10,7 @@ class BreathingActivity : Activity
         DisplayActivityStart();
         SetDurration();
         MakeSpinner("Get Ready...", 5);
+        Console.WriteLine();
         DateTime rightNow = DateTime.Now;
         DateTime endTime = rightNow.AddSeconds(GetDurration());
         while(DateTime.Now < endTime)
@@ -17,6 +18,7 @@ class BreathingActivity : Activity
             RunCountDown("Breath in: ", 4);
             RunCountDown("Breath out: ", 6);
         }
-        DisplayActivityEnd($"You have completed another {GetDurration()} seconds of the breathing activity.");
+        Console.WriteLine();
+        DisplayActivityEnd(GetDurration());
     }
 }

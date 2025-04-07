@@ -18,6 +18,7 @@ class Activity
         {
             Console.Write("How long do you want to do the activity for(sec)? ");
             this._durration = int.Parse(Console.ReadLine());
+            Console.Clear();
         }
 
         public int GetDurration()
@@ -26,14 +27,18 @@ class Activity
         }
     public void DisplayActivityStart()
     {
-        Console.WriteLine($"welcome to the {_name} activity!");
+        Console.Clear();
+        Console.WriteLine($"welcome to the {_name} activity!\n");
         Console.WriteLine(_description);
+        Console.WriteLine();
     }
 
-    public void DisplayActivityEnd(string message)
+    public void DisplayActivityEnd(int durration)
     {
+        
         MakeSpinner("Well Done!", 3);
-        MakeSpinner(message, 4);
+        Console.WriteLine();
+        MakeSpinner($"You have completed another {durration} seconds of the {_name} activity.", 4);
     }
 
     public void RunCountDown(string message, int durration)
@@ -66,13 +71,12 @@ class Activity
         Console.WriteLine(" ");
     }
 
-    public static string ChooseRandomPrompt()
+    public static string ChooseRandom(string[] randomList)
     {
-        string[] promptList = ["Who are people that you appreciate?", "What are personal strengths of yours?", "Who are people that you have helped this week?", "When have you felt the Holy Ghost this month?", "Who are some of your personal heroes?"];
         int index = -1;
         Random random = new Random();
-        index = random.Next(promptList.Count());
-        string prompt = promptList[index];
+        index = random.Next(randomList.Count());
+        string prompt = randomList[index];
         return prompt;
     }
 }
