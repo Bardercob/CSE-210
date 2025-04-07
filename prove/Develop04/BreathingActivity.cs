@@ -8,5 +8,8 @@ class BreathingActivity : Activity
     public void RunActivity()
     {
         DisplayActivityStart();
+        RunCountDown("Breath in: ", 4);
+        RunCountDown("Breath out: ", 6);
+        DisplayActivityEnd();
     }
 }
