@@ -6,22 +6,34 @@ class Activity
     private int _durration;
     private DateTime _endTime;
 
-    public Activity(string name, string description, int durration)
+    public Activity(string name, string description, int durr)
     {
         this._name = name;
         this._description = description;
-        this._durration = durration;
-        _endTime = DateTime.Now;
+        this._durration = durr;
+        this._endTime = DateTime.Now;
     }
 
+    public void SetDurration()
+        {
+            Console.Write("How long do you want to do the activity for(sec)? ");
+            this._durration = int.Parse(Console.ReadLine());
+        }
+
+        public int GetDurration()
+        {
+            return _durration;
+        }
     public void DisplayActivityStart()
     {
         Console.WriteLine($"welcome to the {_name} activity!");
+        Console.WriteLine(_description);
     }
 
-    public void DisplayActivityEnd()
+    public void DisplayActivityEnd(string message)
     {
-        
+        MakeSpinner("Well Done!", 3);
+        MakeSpinner(message, 4);
     }
 
     public void RunCountDown(string message, int durration)
@@ -29,7 +41,7 @@ class Activity
         DateTime rightNow = DateTime.Now;
         _endTime = rightNow.AddSeconds(durration);
         Console.Write($"{message}{durration}");
-        while (DateTime.Now < _endTime)
+        while (durration > 0)
         {
             Console.Write("\b");
             Console.Write(durration --);
@@ -38,18 +50,19 @@ class Activity
         Console.WriteLine("\b0");
     }
 
-    public void MakeSpinner()
+    public void MakeSpinner(string message, int seconds)
     {
         char[] spinner = ['|', '/', '-', '\\'];
-        for(int i = 0; i < 10; i++)
+        Console.Write(message);
+        for(int i = 0; i < seconds * 2; i++)
         {
-        foreach(char character in spinner)
-        {
-            Console.Write(character);
-            Thread.Sleep(125);
-            Console.Write("\b");
+            foreach(char character in spinner)
+            {
+                Console.Write(character);
+                Thread.Sleep(125);
+                Console.Write("\b");
+            }
         }
-        }
-        Console.Write(" ");
+        Console.WriteLine(" ");
     }
 }

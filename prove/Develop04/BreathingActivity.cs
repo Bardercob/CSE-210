@@ -8,8 +8,15 @@ class BreathingActivity : Activity
     public void RunActivity()
     {
         DisplayActivityStart();
-        RunCountDown("Breath in: ", 4);
-        RunCountDown("Breath out: ", 6);
-        DisplayActivityEnd();
+        SetDurration();
+        MakeSpinner("Get Ready...", 5);
+        DateTime rightNow = DateTime.Now;
+        DateTime endTime = rightNow.AddSeconds(GetDurration());
+        while(DateTime.Now < endTime)
+        {
+            RunCountDown("Breath in: ", 4);
+            RunCountDown("Breath out: ", 6);
+        }
+        DisplayActivityEnd($"You have completed another {GetDurration()} seconds of the breathing activity.");
     }
 }
