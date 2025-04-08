@@ -38,7 +38,7 @@ class Activity
         
         MakeSpinner("Well Done!", 3);
         Console.WriteLine();
-        MakeSpinner($"You have completed another {durration} seconds of the {_name} activity.", 4);
+        MakeSpinner($"You have completed another {durration} seconds of the {_name} activity.", 5);
     }
 
     public void RunCountDown(string message, int durration)

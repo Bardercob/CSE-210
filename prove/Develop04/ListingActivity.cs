@@ -1,9 +1,10 @@
 class ListingActivity : Activity
 {
-    private string[] _prompt;
-    public ListingActivity(string[] prompt, string name, string description, int durration) : base(name, description, durration)
+    private string[] _prompt = ["Who are people that you appreciate?", "What are personal strengths of yours?",
+    "Who are people that you have helped this week?", "When have you felt the Holy Ghost this month?", "Who are some of your personal heroes?"];
+    public ListingActivity(string name, string description, int durration) : base(name, description, durration)
     {
-        _prompt = prompt;
+
     }
 
     public void RunActivity()
