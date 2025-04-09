@@ -1,11 +1,9 @@
-using System;
-
 class Program
 {
     static void Main(string[] args)
     {
         Menu menu = new Menu(0);
-        Goals goalList = new Goals();
+        Goals goals = new Goals();
         int menuvalue = 0;
         while (menuvalue != 6)
         {
@@ -18,21 +16,29 @@ class Program
                     {
                         case 1:
                             SimpleGoal simpleGoal = new SimpleGoal();
-                            goalList.AddGoal(simpleGoal);
+                            goals.AddGoal(simpleGoal);
                             break;
                         case 2:
                             EternalGoal eternalGoal = new EternalGoal();
-                            goalList.AddGoal(eternalGoal);
+                            goals.AddGoal(eternalGoal);
                             break;
                         case 3:
                             CheckListGoal checkListGoal = new CheckListGoal();
-                            goalList.AddGoal(checkListGoal);
+                            goals.AddGoal(checkListGoal);
                             break;
                     }
                     break;
                 
                 case 2:
-                    goalList.DisplayGoals();
+                    goals.DisplayGoals();
+                    break;
+
+                case 3:
+                    goals.SaveGoals();
+                    break;
+
+                case 4:
+                    goals.LoadGoals();
                     break;
 
                 default:

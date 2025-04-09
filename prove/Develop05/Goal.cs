@@ -87,7 +87,7 @@
 
     public virtual string GoalStringForFile()
     {
-        string fileString = $"{_goalType},{_name},{_description},{_finished},{_points}";
+        string fileString = $"{_goalType}:{_name},{_description},{_points},{_finished}";
         return fileString;
     }
 

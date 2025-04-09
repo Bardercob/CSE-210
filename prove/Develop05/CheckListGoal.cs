@@ -4,7 +4,7 @@ class CheckListGoal : Goal
     private int _currentCompletions;
     private int _bonusPoints;
 
-    public CheckListGoal(int maxCompletions, int currentCompletions, int bonusPoints, string name, string description, int points, bool finished) : base(name, description, points, finished)
+    public CheckListGoal(string name, string description, int points, bool finished, int maxCompletions, int currentCompletions, int bonusPoints) : base(name, description, points, finished)
     {
         this._maxCompletions = maxCompletions;
         this._currentCompletions = currentCompletions;
