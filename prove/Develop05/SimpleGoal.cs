@@ -7,7 +7,14 @@ class SimpleGoal : Goal
 
     public SimpleGoal() : base()
     {
-        
+
+    }
+
+    public override int RecordEvent()
+    {
+        Console.WriteLine($"Congratulations! You got {GetPoints()} points!");
+        SetFinish(true);
+        return GetPoints();
     }
     
 }

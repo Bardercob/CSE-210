@@ -1,6 +1,4 @@
-using System.Security.Cryptography.X509Certificates;
-
-class Goal
+ abstract class Goal
 {
     private string _goalType;
     private string _name;
@@ -44,6 +42,11 @@ class Goal
         this._points = int.Parse(Console.ReadLine());
     }
 
+    public void SetFinish(bool finished)
+    {
+        _finished = finished;
+    }
+
     public string GetName()
     {
         return this._name;
@@ -58,6 +61,13 @@ class Goal
     {
         return this._points;
     }
+
+    public bool GetFinished()
+    {
+        return this._finished;
+    }
+
+    public abstract int RecordEvent();
 
     public virtual string GoalStringForDisplay()
     {
