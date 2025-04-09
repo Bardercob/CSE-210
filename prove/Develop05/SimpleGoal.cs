@@ -13,7 +13,7 @@ class SimpleGoal : Goal
     public override int RecordEvent()
     {
         Console.WriteLine($"Congratulations! You got {GetPoints()} points!");
-        SetFinish(true);
+        SetFinished(true);
         return GetPoints();
     }
     

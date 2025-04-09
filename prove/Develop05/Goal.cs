@@ -42,7 +42,7 @@
         this._points = int.Parse(Console.ReadLine());
     }
 
-    public void SetFinish(bool finished)
+    public void SetFinished(bool finished)
     {
         _finished = finished;
     }

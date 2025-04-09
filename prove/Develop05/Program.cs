@@ -42,6 +42,9 @@ class Program
                     break;
 
                 default:
+
+                case 5:
+                    goals.RecordEvent();
                     break;
             }
 

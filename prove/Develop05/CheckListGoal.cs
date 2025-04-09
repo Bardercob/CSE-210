@@ -4,7 +4,7 @@ class CheckListGoal : Goal
     private int _currentCompletions;
     private int _bonusPoints;
 
-    public CheckListGoal(string name, string description, int points, bool finished, int maxCompletions, int currentCompletions, int bonusPoints) : base(name, description, points, finished)
+    public CheckListGoal(string name, string description, int points, bool finished, int currentCompletions, int maxCompletions, int bonusPoints) : base(name, description, points, finished)
     {
         this._maxCompletions = maxCompletions;
         this._currentCompletions = currentCompletions;
@@ -42,6 +42,12 @@ class CheckListGoal : Goal
     public override int RecordEvent()
         {
             Console.WriteLine($"Congratulations! You got {GetPoints()} points!");
+            _currentCompletions += 1;
+            if (_currentCompletions == _maxCompletions)
+            {
+                SetFinished(true);
+            }
+            
             return GetPoints();
         }
 

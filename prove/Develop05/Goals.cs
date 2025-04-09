@@ -1,4 +1,3 @@
-using System.IO;
 class Goals
 {
     private int _totalPoints;
@@ -22,9 +21,23 @@ class Goals
 
     public void DisplayGoals()
     {
+        int counter = 0;
         foreach(Goal goal in _goalList)
         {
-            Console.WriteLine($"{goal.GoalStringForDisplay()}");
+            Console.WriteLine($"{++counter}. {goal.GoalStringForDisplay()}");
+        }
+    }
+
+    public void DisplayIncompleteGoals()
+    {
+        int counter = 0;
+        foreach(Goal goal in _goalList)
+        {
+            if (! goal.GetFinished())
+            {
+                Console.WriteLine($"{++counter}. {goal.GetName()}");
+            }
+            
         }
     }
 
@@ -84,5 +97,30 @@ class Goals
     public int GetTotalPoints()
     {
         return _totalPoints;
+    }
+
+    public void RecordEvent()
+    {
+        Console.WriteLine("Your uncompleted goals are:");
+        DisplayIncompleteGoals();
+        Console.Write("Which goal did you accomplish? ");
+        int goalchoice = int.Parse(Console.ReadLine());
+        int counter1 = 0;
+        int counter2 = 0;
+        foreach(Goal goal in _goalList)
+        {
+            counter1++;
+            if (! goal.GetFinished())
+            {
+                counter2++;
+                if (counter2 == goalchoice)
+                {
+                    _goalList[counter1 - 1].RecordEvent();
+                }
+            }
+            
+        }
+
+        
     }
 }
