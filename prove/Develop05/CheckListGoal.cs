@@ -1,19 +1,42 @@
-class ChecklistGoal : Goal
+class CheckListGoal : Goal
 {
     private int _maxCompletions;
-    private int _numberOfCompletions;
+    private int _currentCompletions;
     private int _bonusPoints;
 
-    public ChecklistGoal(int maxCompletions, int numberOfCompletions, int bonusPoints, string name, string description, int points, bool finished) : base(name, description, points, finished)
+    public CheckListGoal(int maxCompletions, int currentCompletions, int bonusPoints, string name, string description, int points, bool finished) : base(name, description, points, finished)
     {
         this._maxCompletions = maxCompletions;
-        this._numberOfCompletions = numberOfCompletions;
+        this._currentCompletions = currentCompletions;
         this._bonusPoints = bonusPoints;
     }
 
-    public ChecklistGoal() : base()
+    public CheckListGoal() : base()
     {
+        SetMaxCompletions();
+        SetBonusPoints();
+    }
 
+    public void SetMaxCompletions()
+    {
+        Console.Write("How many times does this goal need to be accomplished for a bonus? ");
+        this._maxCompletions = int.Parse(Console.ReadLine());
+    }
+
+    public void SetBonusPoints()
+    {
+        Console.Write("What are the bonus points for accomplishing it that many times? ");
+        this._bonusPoints = int.Parse(Console.ReadLine());
+    }
+
+    public int GetMaxCompletions()
+    {
+        return _maxCompletions;
+    }
+
+    public int GetBonusPoints()
+    {
+        return _bonusPoints;
     }
 
     public override int RecordEvent()
@@ -24,12 +47,12 @@ class ChecklistGoal : Goal
 
     public override string GoalStringForDisplay()
     {
-        return $"{base.GoalStringForDisplay()} -- Currently Completed: {_numberOfCompletions}/{_maxCompletions}";
+        return $"{base.GoalStringForDisplay()} -- Currently Completed: {_currentCompletions}/{_maxCompletions}";
     }
 
     public override string GoalStringForFile()
     {
-        return $"{base.GoalStringForFile()},{_numberOfCompletions},{_maxCompletions},{_bonusPoints}";
+        return $"{base.GoalStringForFile()},{_currentCompletions},{_maxCompletions},{_bonusPoints}";
     }
 
 }
