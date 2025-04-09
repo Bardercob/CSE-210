@@ -1,14 +1,13 @@
 class Menu
 {
-    private int _points;
-    public Menu(int points)
+    public Menu()
     {
-        _points = points;
+        
     }
 
-    public int DisplayMainMenu()
+    public int DisplayMainMenu(int totalPoints)
     {
-        Console.WriteLine($"You have {_points} points.");
+        Console.WriteLine($"You have {totalPoints} points.");
         Console.WriteLine();
         Console.WriteLine("  1. Create New Goal");
         Console.WriteLine("  2. List Goals");

@@ -115,7 +115,7 @@ class Goals
                 counter2++;
                 if (counter2 == goalchoice)
                 {
-                    _goalList[counter1 - 1].RecordEvent();
+                    _totalPoints += _goalList[counter1 - 1].RecordEvent();
                 }
             }
             

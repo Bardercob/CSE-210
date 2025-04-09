@@ -46,9 +46,14 @@ class CheckListGoal : Goal
             if (_currentCompletions == _maxCompletions)
             {
                 SetFinished(true);
+                Console.WriteLine($"You also got {_bonusPoints} points for completing the goal!");
+                return GetPoints() + _bonusPoints;
+            }
+            else
+            {
+                return GetPoints();
             }
             
-            return GetPoints();
         }
 
     public override string GoalStringForDisplay()

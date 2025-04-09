@@ -2,12 +2,12 @@ class Program
 {
     static void Main(string[] args)
     {
-        Menu menu = new Menu(0);
         Goals goals = new Goals();
+        Menu menu = new Menu();
         int menuvalue = 0;
         while (menuvalue != 6)
         {
-            menuvalue = menu.DisplayMainMenu();
+            menuvalue = menu.DisplayMainMenu(goals.GetTotalPoints());
             switch (menuvalue)
             {
                 case 1:
@@ -40,8 +40,6 @@ class Program
                 case 4:
                     goals.LoadGoals();
                     break;
-
-                default:
 
                 case 5:
                     goals.RecordEvent();
