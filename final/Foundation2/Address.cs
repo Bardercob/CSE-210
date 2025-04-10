@@ -23,6 +23,6 @@ class Address
 
     public string AddressStringFormat()
     {
-        return $"{_streetAddress}\n{_city}{_stateProvince}, {_country}";
+        return $"{_streetAddress}\n{_city} {_stateProvince}, {_country}";
     }
 }

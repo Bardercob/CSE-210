@@ -1,5 +1,3 @@
-using System.Dynamic;
-
 class Customer
 {
     private string _name;
@@ -14,6 +12,11 @@ class Customer
     public string GetName()
     {
         return _name;
+    }
+
+    public string SetAddress()
+    {
+        return _address.AddressStringFormat();
     }
 
     public Address GetAddress()

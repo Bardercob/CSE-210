@@ -9,9 +9,14 @@ class Order
         _productList = new List<Product>();
     }
 
-    public int FindTotalCost()
+    public void AddProduct(Product product)
     {
-        int totalCost = 0;
+        _productList.Add(product);
+    }
+
+    public double FindTotalCost()
+    {
+        double totalCost = 0;
         foreach(Product product in _productList)
         {
             totalCost += product.FindTotalCost();
@@ -32,12 +37,12 @@ class Order
     {
         foreach(Product product in _productList)
         {
-            Console.WriteLine($"{product.GetName}: {product.GetID}");
+            Console.WriteLine($"{product.GetName()}: {product.GetID()}");
         }
     }
 
     public void ShippingLabel()
     {
-        Console.WriteLine($"{_customer.GetName()}\n{_customer.GetAddress()}");
+        Console.WriteLine($"{_customer.GetName()}\n{_customer.SetAddress()}");
     }
 }

@@ -4,10 +4,10 @@ class Product
 {
     private string _productName;
     private int _productID;
-    private int _pricePerUnit;
+    private double _pricePerUnit;
     private int _quantity;
 
-    public Product(string productName, int productID, int pricePerUnit, int quantity)
+    public Product(string productName, int productID, double pricePerUnit, int quantity)
     {
         _productName = productName;
         _pricePerUnit = pricePerUnit;
@@ -25,7 +25,7 @@ class Product
         return _productID;
     }
 
-    public int FindTotalCost()
+    public double FindTotalCost()
     {
         return _pricePerUnit * _quantity;
     }
