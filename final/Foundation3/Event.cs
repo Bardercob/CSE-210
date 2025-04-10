@@ -31,6 +31,6 @@ class Event
         {
             eventType = base.ToString();
         }
-        Console.WriteLine($"Event type: {eventType}, {_eventTitle} Date:{_date}");
+        Console.WriteLine($"Event type: {eventType}, {_eventTitle} Date: {_date}");
     }
 }
