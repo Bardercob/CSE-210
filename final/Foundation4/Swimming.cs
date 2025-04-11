@@ -22,5 +22,4 @@ class Swimming : Activity
         return GetDistance() / base.GetSpeed() * 60;
     }
 
-
 }

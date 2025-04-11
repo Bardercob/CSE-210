@@ -1,5 +1,3 @@
-using System.Dynamic;
-
 class Running : Activity
 {
     private double _distance;

@@ -35,4 +35,5 @@ class Activity
     {
         return $"{_date} {base.ToString()} ({_lengthInMinutes} min): Distance {GetDistance()} miles, Speed {GetSpeed()} mph, Pace: {GetPace()} min per mile";
     }
+    
 }
